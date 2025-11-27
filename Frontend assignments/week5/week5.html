@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Week 5 JS</title>
+</head>
+<body>
+  <script>
+    // 12) Welcome
+    const name = prompt("Enter your name:");
+    alert("Welcome, " + name + "!");
+    document.write("<h1>Hello " + name + "</h1>");
+
+    // 13) Eligibility
+    const age = Number(prompt("Enter your age:"));
+    const msg = age >= 18 ? "Eligible to vote" : "Not eligible";
+    alert(msg);
+
+    // 14) Array methods
+    const nums = [1, 2, 3, 4, 5];
+    const doubled = nums.map(n => n * 2);
+    const evens = nums.filter(n => n % 2 === 0);
+    let sum = 0;
+    nums.forEach(n => sum += n);
+    const reducedSum = nums.reduce((a, b) => a + b, 0);
+    console.log(doubled, evens, sum, reducedSum);
+  </script>
+</body>
+</html>

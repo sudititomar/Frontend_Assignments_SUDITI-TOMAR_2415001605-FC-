@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Space Animation</title>
+  <style>
+    body { background:#000; color:#fff; font-family:sans-serif; }
+    .space { position: relative; height: 300px; overflow: hidden; }
+    .rocket {
+      position: absolute; left: 10%; bottom: 0;
+      width: 80px;
+      animation: fly 5s linear infinite;
+    }
+    .astronaut {
+      position: absolute; right: 10%; top: 20%;
+      width: 80px;
+      animation: float 4s ease-in-out infinite alternate;
+    }
+    @keyframes fly {
+      from { transform: translateY(0); }
+      to   { transform: translateY(-320px); }
+    }
+    @keyframes float {
+      from { transform: translateY(0); }
+      to   { transform: translateY(30px); }
+    }
+    nav a {
+      margin: 0 10px;
+      color: #fff;
+      text-decoration: none;
+      padding: 6px 10px;
+      transition: all 0.3s ease;
+    }
+    nav a:hover {
+      background:#fff;
+      color:#000;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Features</a>
+    <a href="#">Contact</a>
+  </nav>
+  <div class="space">
+    <img src="rocket.png" class="rocket" alt="Rocket">
+    <img src="astronaut.png" class="astronaut" alt="Astronaut">
+  </div>
+</body>
+</html>

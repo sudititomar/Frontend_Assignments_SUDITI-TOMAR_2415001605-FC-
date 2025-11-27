@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blog Layout</title>
+  <style>
+    body { margin: 0; font-family: Arial; }
+    .container { display: flex; gap: 16px; padding: 16px; }
+    .col { flex: 1; border: 1px solid #ddd; padding: 12px; }
+    @media (max-width: 768px) {
+      .container { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align:center;">My Blog</h1>
+  <div class="container">
+    <div class="col">Post 1</div>
+    <div class="col">Post 2</div>
+    <div class="col">Post 3</div>
+  </div>
+</body>
+</html>

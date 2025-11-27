@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Advanced DOM</title>
+  <style>
+    .board { display: grid; grid-template-columns: repeat(8, 40px); }
+    .cell { width: 40px; height: 40px; }
+  </style>
+</head>
+<body>
+  <h2>To-Do Advanced</h2>
+  <input id="todo-text">
+  <button id="add">Add</button>
+  <ul id="todos"></ul>
+
+  <h2>Chessboard</h2>
+  <div class="board" id="board"></div>
+
+  <script>
+    // 22) Advanced To-do
+    const list = document.getElementById('todos');
+    document.getElementById('add').onclick = () => {
+      const text = document.getElementById('todo-text').value.trim();
+      if (!text) return;
+      const li = document.createElement('li');
+      const cb = document.createElement('input');
+      cb.type = 'checkbox';
+      const span = document.createElement('span');
+      span.textContent = " " + text + " ";
+      const up = document.createElement('button'); up.textContent = "Up";
+      const down = document.createElement('button'); down.textContent = "Down";
+      const del = document.createElement('button'); del.textContent = "Delete";
+
+      up.onclick = () => li.previousElementSibling && list.insertBefore(li, li.previousElementSibling);
+      down.onclick = () => li.nextElementSibling && list.insertBefore(li.nextElementSibling, li);
+      del.onclick = () => li.remove();
+
+      li.append(cb, span, up, down, del);
+      list.appendChild(li);
+      document.getElementById('todo-text').value = "";
+    };
+
+    // 23) Chessboard
+    const board = document.getElementById('board');
+    for (let r = 0; r < 8; r++) {
+      for (let c = 0; c < 8; c++) {
+        const cell = document.createElement('div');
+        cell.className = 'cell';
+        const black = (r + c) % 2 === 1;
+        cell.style.background = black ? '#000' : '#fff';
+        board.appendChild(cell);
+      }
+    }
+  </script>
+</body>
+</html>

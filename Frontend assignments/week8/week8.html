@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>jQuery Lab</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+  <h2>FAQ</h2>
+  <h3 class="q">What is this?</h3>
+  <p class="a">A simple FAQ using jQuery.</p>
+
+  <h2>Login</h2>
+  <button id="show-login">Show Login</button>
+  <div id="login-box" style="display:none;">
+    <form>
+      <input type="text" placeholder="User"><br>
+      <input type="password" placeholder="Password"><br>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <script>
+    // 19) FAQ slideToggle
+    $(".a").hide();
+    $(".q").click(function() {
+      $(this).next(".a").slideToggle();
+    });
+
+    // 20) Dynamic css
+    $("h2").css({ color: "purple", "font-weight": "bold" });
+
+    // 21) Fade in/out login
+    $("#show-login").click(function() {
+      $("#login-box").fadeIn(500);
+    });
+    $("#login-box").click(function() {
+      $(this).fadeOut(500);
+    });
+  </script>
+</body>
+</html>

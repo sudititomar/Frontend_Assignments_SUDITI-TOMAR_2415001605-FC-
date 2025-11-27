@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery & Async</title>
+</head>
+<body>
+  <h2>Gallery</h2>
+  <img id="main-img" src="img1.jpg" width="300">
+  <div id="thumbs">
+    <img src="img1.jpg" width="80">
+    <img src="img2.jpg" width="80">
+    <img src="img3.jpg" width="80">
+  </div>
+
+  <h2>Async Data</h2>
+  <button id="load-btn">Load Data</button>
+  <pre id="result"></pre>
+
+  <script>
+    // 17) Gallery with delegation
+    document.getElementById('thumbs').addEventListener('click', e => {
+      if (e.target.tagName === 'IMG') {
+        document.getElementById('main-img').src = e.target.src;
+      }
+    });
+
+    // 18) Simulated fetch
+    function fakeFetch() {
+      return new Promise(resolve => {
+        setTimeout(() => resolve({ name: "Suditi", role: "Dev" }), 2000);
+      });
+    }
+
+    document.getElementById('load-btn').onclick = () => {
+      document.getElementById('result').textContent = "Loading...";
+      fakeFetch().then(data => {
+        document.getElementById('result').textContent = JSON.stringify(data, null, 2);
+      });
+    };
+  </script>
+</body>
+</html>

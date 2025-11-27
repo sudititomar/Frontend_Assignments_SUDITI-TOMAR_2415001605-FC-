@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cities</title>
+  <style>
+    ol { counter-reset: c; }
+    li {
+      counter-increment: c;
+      margin: 8px 0;
+      color: #34495e;
+    }
+    li::before {
+      content: counter(c) ") ";
+      color: #8e44ad;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cities</h1>
+  <ol>
+    <li>Delhi</li>
+    <li>Mumbai</li>
+    <li>Bengaluru</li>
+  </ol>
+</body>
+</html>

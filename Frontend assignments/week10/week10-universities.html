@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Universities by Country</title>
+</head>
+<body>
+  <h1>Search Universities</h1>
+  <input id="country" placeholder="Enter country">
+  <button id="search">Search</button>
+  <ul id="list"></ul>
+
+  <script>
+    document.getElementById('search').onclick = () => {
+      const c = document.getElementById('country').value.trim();
+      if (!c) return;
+      const url = 'https://universities.hipolabs.com/search?country=' + encodeURIComponent(c);
+      fetch(url)
+        .then(res => res.json())
+        .then(data => {
+          const list = document.getElementById('list');
+          list.innerHTML = "";
+          data.forEach(u => {
+            const li = document.createElement('li');
+            li.innerHTML = `<strong>${u.name}</strong> - ${u['state-province'] || 'N/A'} - <a href="${u.web_pages[0]}" target="_blank">${u.web_pages[0]}</a>`;
+            list.appendChild(li);
+          });
+        });
+    };
+  </script>
+</body>
+</html>
